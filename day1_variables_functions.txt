@@ -62,6 +62,7 @@ phone_number = "98XXXXXXXX"
 blood_group = "O+"
 address = "Coimbatore, Tamil Nadu"
 patient_id = "HOSP12345"
+
 ✅ Function Example (to show usage)
 python
 # Function Example
@@ -69,3 +70,41 @@ def greet_user(name):
     return "Welcome, " + name + "! Your registration is successful."
 
 print(greet_user("YYY"))
+
+📝 Notes on Understanding
+Hardcoded values → Example:
+
+python
+name = "Karunya"
+This is fixed in the code. It never changes unless you edit the file.
+
+Runtime values (using input()) → Example:
+
+python
+name = input("Enter your name")
+This lets the user type a value when the program runs. It’s dynamic, not fixed.
+
+📘 Difference Between Program 1 and Program 2 (Theory)
+Program 1
+
+In Program 1, the function get_details() collects all the inputs from the user.
+
+Immediately after collecting, it calls the print_details() function and passes the values directly as arguments.
+
+This means the data is used right away, and the flow is fixed: input → print.
+
+Advantage: Simple and straightforward for small programs.
+
+Limitation: Not reusable — you cannot use the collected data for anything else (like saving to a file or doing calculations) because it is directly tied to printing.
+
+Program 2
+
+In Program 2, the function get_details() collects all the inputs but instead of printing, it returns the values as a tuple.
+
+The returned tuple is stored in a variable (data).
+
+Later, the print_details() function is called separately, and the tuple is unpacked using *data.
+
+Advantage: More flexible and reusable — the collected data can be used for multiple purposes (printing, saving, validating, etc.).
+
+Limitation: Slightly more complex than Program 1, but this structure is preferred in real-world coding because it separates data collection from data usage.
