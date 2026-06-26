@@ -1,36 +1,144 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <title>Admission Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-<div class="result-box"></div>
+<div class="form-container">
 
-<h1>Admission Result</h1>
+    <center>
 
-<p><b>Student ID:</b> {{ student_id }}</p>
+        <img src="{{ url_for('static', filename='logo.png') }}"
+             width="100">
 
-<p><b>Name:</b> {{ name }}</p>
+        <h1>
+            KARUNYA INSTITUTE OF TECHNOLOGY AND SCIENCES
+        </h1>
 
-<p><b>Department:</b> {{ department }}</p>
+        <h2>Admission Status Report</h2>
 
-<h2>Marks</h2>
+    </center>
 
-<h2>Academic Marks</h2>
+    <hr>
 
-<p>Mathematics: {{ maths }}</p>
-<p>Physics: {{ physics }}</p>
-<p>Chemistry: {{ chemistry }}</p>
+    <div class="card">
 
-<p><b>Total:</b> {{ total }}</p>
+        <h2>Student Information</h2>
 
-<p><b>Percentage:</b> {{ percentage }}%</p>
+        <p><b>Student ID:</b> {{ student_id }}</p>
 
-<h2>{{ status }}</h2>
+        <p><b>Name:</b> {{ name }}</p>
 
-<a href="/">Apply Again</a>
+        <p><b>Department:</b> {{ department }}</p>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+
+        <h2>Academic Evaluation</h2>
+
+        <p><b>Overall Percentage:</b>
+            {{ percentage }}%
+        </p>
+
+        <p><b>Grade:</b>
+            {{ grade }}
+        </p>
+
+        <p><b>Merit Rank:</b>
+            {{ merit_rank }}
+        </p>
+
+        <p><b>Scholarship Eligibility:</b>
+            {{ scholarship }}
+        </p>
+
+    </div>
+
+    <br>
+
+    {% if status == "Admission Approved" %}
+
+    <div style="
+        background:#d4edda;
+        color:#155724;
+        padding:20px;
+        border-radius:10px;
+        text-align:center;
+        font-size:24px;
+        font-weight:bold;
+    ">
+
+        🎉 CONGRATULATIONS 🎉
+
+        <br><br>
+
+        {{ status }}
+
+    </div>
+
+    {% elif status == "Waiting List" %}
+
+    <div style="
+        background:#fff3cd;
+        color:#856404;
+        padding:20px;
+        border-radius:10px;
+        text-align:center;
+        font-size:24px;
+        font-weight:bold;
+    ">
+
+        ⏳ WAITING LIST
+
+    </div>
+
+    {% else %}
+
+    <div style="
+        background:#f8d7da;
+        color:#721c24;
+        padding:20px;
+        border-radius:10px;
+        text-align:center;
+        font-size:24px;
+        font-weight:bold;
+    ">
+
+        ❌ {{ status }}
+
+    </div>
+
+    {% endif %}
+
+    <br>
+
+    <center>
+
+        <button onclick="window.print()">
+            Print Admission Slip
+        </button>
+
+        <br><br>
+
+        <a href="/">
+            Back To Home
+        </a>
+
+    </center>
+
+</div>
 
 </body>
+
 </html>
