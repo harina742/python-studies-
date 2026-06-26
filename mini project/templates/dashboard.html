@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Admin Dashboard</h1>
+
+    <p>Karunya Institute of Technology and Sciences</p>
+
+</header>
+
+<section>
+
+    <div class="dashboard-cards">
+
+        <div class="stat-card">
+
+            <h3>Total Applications</h3>
+
+            <h1>{{ total }}</h1>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Approved</h3>
+
+            <h1>{{ approved }}</h1>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Rejected</h3>
+
+            <h1>{{ rejected }}</h1>
+
+        </div>
+
+        <div class="stat-card">
+
+           <h3>Waiting List</h3>
+
+           <h1>{{ waiting }}</h1>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <center>
+
+        <a href="/students" class="btn">
+            View Students
+        </a>
+
+        <a href="/search" class="btn">
+            Search Student
+        </a>
+
+        <a href="/" class="btn">
+            Home
+        </a>
+
+    </center>
+
+</section>
+
+</body>
+
+</html>
